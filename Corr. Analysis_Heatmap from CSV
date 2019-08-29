@@ -1,0 +1,34 @@
+library("rjson")
+library(plyr)
+library(stringr)
+library("utils")
+library("data.table")
+library(readr)
+library(reshape)
+library(foreign)
+
+
+
+df_2=read_csv("C:/Users/ktpra/OneDrive/Documents/arcgis_df.csv")
+df_3.cor = cor(df_2)
+#head(df_3.cor)
+#df_4.cor = cor(df_2, method = c("pearson"))
+#head(df_4.cor)
+
+#Correlation matrix with P-values 
+#df_5.rcorr = rcorr(as.matrix(df_2))
+#df_5.rcorr
+#df_6.coeff = df_5.rcorr$r
+#df_7.p = df_5.rcorr$P
+
+#Visualizing the correlation matrix
+#corrplot(df_3.cor)
+
+#Generating a heatmap 
+palette = colorRampPalette(c("blue", "white", "red")) (20)
+heatmap(x = df_3.cor, col = palette, symm = TRUE)
+
+
+
+
+
